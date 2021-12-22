@@ -1,9 +1,6 @@
-import React, { useContext } from 'react'
-import { Context } from '../context/Context'
+import React from 'react'
 
-export const WeatherConditions = () => {
-    const [{units, currentWeather}, setStore] = useContext(Context)
-
+export const WeatherConditions = ({units, currentWeather}) => {
     return (
         <div className="w-3/5 flex flex-wrap pl-16">
             <div className="w-full text-6xl flex items-end pb-1">
@@ -23,7 +20,7 @@ export const WeatherConditions = () => {
                     >
                         🢁
                     </span>&nbsp;
-                    {currentWeather.wind_spd}{units === 'M' ? 'm/s' : 'mph'}
+                    {currentWeather.wind_spd?.toFixed(2)}{units === 'M' ? 'm/s' : 'mph'}
                 </p>
                 <p>
                     Visibility: {currentWeather.visibility} {units === 'M' ? 'km' : 'mi'}

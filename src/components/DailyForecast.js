@@ -1,10 +1,7 @@
-import React, { useContext } from 'react'
-import { Context } from '../context/Context'
+import React from 'react'
 import { ForecastOfDay } from './ForecastOfDay'
 
-export const DailyForecast = () => {
-    const [{currentDailyForecast}, setStore] = useContext(Context)
-
+export const DailyForecast = ({currentDailyForecast}) => {
     return (
         <div className="flex">
             {

@@ -1,9 +1,6 @@
-import React, { useContext } from 'react'
-import { Context } from '../context/Context'
+import React from 'react'
 
-export const Degrees = () => {
-    const [{units, currentWeather}, setStore] = useContext(Context)
-
+export const Degrees = ({units, currentWeather, setUnits}) => {
     const degreesStyle = 'p-2 transition-all duration-200 ease-in-out cursor-pointer'
     let celsiusStyle = degreesStyle + ' '
     let farengateStyle = degreesStyle + ' '
@@ -17,10 +14,7 @@ export const Degrees = () => {
     }
 
     const degreesClickHandler = () => {
-        setStore(prev => ({
-            ...prev,
-            units: prev.units === 'I' ? 'M' : 'I'
-        }))
+        setUnits(prev => prev === 'I' ? 'M' : 'I')
     }
 
     return (
